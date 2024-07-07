@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, Float, String, Boolean, DateTime, ForeignKey
 from mft.model.entity.base import Base
+from mft.model.tools.validator import *
 from sqlalchemy.orm import relationship
 
 
@@ -13,8 +14,8 @@ class Student(Base):
     _degree = Column("degree", String(20), nullable=False)
     _major = Column("major", String(20), nullable=False)
     _grade = Column("grade", Float, nullable=False)
-    _phone_number = Column("phone_number", String(14), nullable=False)
-    _email_address = Column("email_address", String(40), nullable=False)
+    _phone_number = Column("phone_number", String(20), nullable=False)
+    _email_address = Column("email_address", String(50), nullable=False)
     _deleted = Column("deleted", Boolean, default=False)
 
     def __init__(self, student_name, student_family, father_name, national_id, degree, major, grade, phone_number,
@@ -44,6 +45,7 @@ class Student(Base):
         return self._student_name
 
     @student_name.setter
+    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "invalid student name !!!")
     def student_name(self, student_name):
         self._student_name = student_name
 
@@ -52,6 +54,7 @@ class Student(Base):
         return self._student_family
 
     @student_family.setter
+    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "invalid student family !!!")
     def student_family(self, student_family):
         self._student_family = student_family
 
@@ -60,6 +63,7 @@ class Student(Base):
         return self._father_name
 
     @father_name.setter
+    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "invalid father's name !!!")
     def father_name(self, father_name):
         self._father_name = father_name
 
@@ -68,6 +72,7 @@ class Student(Base):
         return self._national_id
 
     @national_id.setter
+    @pattern_validator(r"(\d{10}|\d{3}-\d{6}-\d)", "invalid national id !!!")
     def national_id(self, national_id):
         self._national_id = national_id
 
@@ -76,6 +81,7 @@ class Student(Base):
         return self._degree
 
     @degree.setter
+    @pattern_validator(r"^(bachelor|master|doctrate)$", "invalid degree !!!")
     def degree(self, degree):
         self._degree = degree
 
@@ -100,6 +106,7 @@ class Student(Base):
         return self._phone_number
 
     @phone_number.setter
+    @pattern_validator(r"^(09|\+989)\d{9}$", "invalid phone number !!!")
     def phone_number(self, phone_number):
         self._phone_number = phone_number
 
@@ -108,6 +115,7 @@ class Student(Base):
         return self._email_address
 
     @email_address.setter
+    @pattern_validator(r"^[\w.]{2,30}@(gmail|yahoo)\.com$", "invalid email address!!!")
     def email_address(self, email_address):
         self._email_address = email_address
 
