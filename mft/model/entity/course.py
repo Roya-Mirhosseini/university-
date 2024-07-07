@@ -17,3 +17,18 @@ class Course(Base):
     _end_date = Column("end_date", DateTime, nullable=False)
     _professor = Column("professor", String(20), nullable=False)
     _deleted = Column("deleted", Boolean, default=False)
+
+
+    def __init__(self,code,course_name,course_type,unit_number,prerequisite,tongue,hold_type,start_date,end_date,professor,deleted=False):
+        self._row = None
+        self._code = code
+        self._course_name = course_name
+        self._course_type = course_type
+        self._unit_number = unit_number
+        self._prerequisite = prerequisite
+        self._tongue = tongue
+        self._hold_type = hold_type
+        self._start_date = start_date
+        self._end_date = end_date
+        self._professor = professor
+        self._deleted = deleted

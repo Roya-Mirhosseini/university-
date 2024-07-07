@@ -8,3 +8,10 @@ class SelectCourse(Base):
     _student = Column("student", String(40), nullable=False)
     _date_time = Column("date_time", DateTime, nullable=False)
     _deleted = Column("deleted", Boolean, default=False)
+
+
+    def __init__(self,course,student,date_time,deleted=False):
+        self._course = course
+        self._student = student
+        self._date_time = date_time
+        self._deleted = deleted
