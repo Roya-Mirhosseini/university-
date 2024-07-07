@@ -31,90 +31,90 @@ class Student(Base):
         self._email_address = email_address
         self._deleted = deleted
 
-        @property
-        def student_id(self):
-            return self._student_id
+    @property
+    def student_id(self):
+        return self._student_id
 
-        @student_id.setter
-        def student_id(self, student_id):
-            self._student_id = student_id
+    @student_id.setter
+    def student_id(self, student_id):
+        self._student_id = student_id
 
-        @property
-        def student_name(self):
-            return self._student_name
+    @property
+    def student_name(self):
+        return self._student_name
 
-        @student_name.setter
-        def student_name(self, student_name):
-            self._student_name = student_name
+    @student_name.setter
+    def student_name(self, student_name):
+        self._student_name = student_name
 
-        @property
-        def student_family(self):
-            return self._student_family
+    @property
+    def student_family(self):
+        return self._student_family
 
-        @student_family.setter
-        def student_family(self, student_family):
-            self._student_family = student_family
+    @student_family.setter
+    def student_family(self, student_family):
+        self._student_family = student_family
 
-        @property
-        def father_name(self):
-            return self._father_name
+    @property
+    def father_name(self):
+        return self._father_name
 
-        @father_name.setter
-        def father_name(self, father_name):
-            self._father_name = father_name
+    @father_name.setter
+    def father_name(self, father_name):
+        self._father_name = father_name
 
-        @property
-        def national_id(self):
-            return self._national_id
+    @property
+    def national_id(self):
+        return self._national_id
 
-        @national_id.setter
-        def national_id(self, national_id):
-            self._national_id = national_id
+    @national_id.setter
+    def national_id(self, national_id):
+        self._national_id = national_id
 
-        @property
-        def degree(self):
-            return self._degree
+    @property
+    def degree(self):
+        return self._degree
 
-        @degree.setter
-        def degree(self, degree):
-            self._degree = degree
+    @degree.setter
+    def degree(self, degree):
+        self._degree = degree
 
-        @property
-        def major(self):
-            return self._major
+    @property
+    def major(self):
+        return self._major
 
-        @major.setter
-        def major(self, major):
-            self._major = major
+    @major.setter
+    def major(self, major):
+        self._major = major
 
-        @property
-        def grade(self):
-            return self._grade
+    @property
+    def grade(self):
+        return self._grade
 
-        @grade.setter
-        def grade(self, grade):
-            self._grade = grade
+    @grade.setter
+    def grade(self, grade):
+        self._grade = grade
 
-        @property
-        def phone_number(self):
-            return self._phone_number
+    @property
+    def phone_number(self):
+        return self._phone_number
 
-        @phone_number.setter
-        def phone_number(self, phone_number):
-            self._phone_number = phone_number
+    @phone_number.setter
+    def phone_number(self, phone_number):
+        self._phone_number = phone_number
 
-        @property
-        def email_address(self):
-            return self._email_address
+    @property
+    def email_address(self):
+        return self._email_address
 
-        @email_address.setter
-        def email_address(self, email_address):
-            self._email_address = email_address
+    @email_address.setter
+    def email_address(self, email_address):
+        self._email_address = email_address
 
-        @property
-        def deleted(self):
-            return self._deleted
+    @property
+    def deleted(self):
+        return self._deleted
 
-        @deleted.setter
-        def deleted(self, deleted):
-            self._deleted = deleted
+    @deleted.setter
+    def deleted(self, deleted):
+        self._deleted = deleted

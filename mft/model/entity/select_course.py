@@ -15,3 +15,36 @@ class SelectCourse(Base):
         self._student = student
         self._date_time = date_time
         self._deleted = deleted
+
+
+    @property
+    def course(self):
+        return self._course
+
+    @course.setter
+    def course(self, course):
+        self._course = course
+
+    @property
+    def student(self):
+        return self._student
+
+    @student.setter
+    def student(self, student):
+        self._student = student
+
+    @property
+    def date_time(self):
+        return self._date_time
+
+    @date_time.setter
+    def date_time(self, date_time):
+        self._date_time = date_time
+
+    @property
+    def deleted(self):
+        return self._deleted
+
+    @deleted.setter
+    def deleted(self, deleted):
+        self._deleted = deleted
