@@ -1,4 +1,5 @@
 import re
+from datetime import datetime
 
 
 def pattern_validator(pattern, message):
@@ -19,7 +20,7 @@ def pattern_validator(pattern, message):
 def date_time_validator(message):
     def inner1(function_name):
         def inner2(self, date_time_param):
-            if isinstance(date_time_param, date):
+            if isinstance(date_time_param, datetime):
                 result = function_name(self, date_time_param)
             elif isinstance(date_time_param, str):
                 date_time_param = date_time_param.replace('/', '-')
