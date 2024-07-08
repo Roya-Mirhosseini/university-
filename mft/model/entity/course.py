@@ -140,4 +140,5 @@ class Course(Base):
 
     @deleted.setter
     def deleted(self, deleted):
+
         self._deleted = deleted

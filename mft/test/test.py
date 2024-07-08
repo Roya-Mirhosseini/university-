@@ -11,4 +11,5 @@ from mft.model.tools.validator import *
 from mft.model.entity.course import Course
 professor = Professor("ali","aat","engineering","electrical","contractual employment","jhdjdh@iau.ac,")
 course = Course("56749","electronic 2","theoretical",3,"electronic 1","english","in person","2024/09/09","2025/03/05",professor)
+
 print(course)
