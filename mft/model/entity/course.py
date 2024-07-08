@@ -22,7 +22,7 @@ class Course(Base):
     proffesor = relationship("Professor")
 
     def __init__(self, code, course_name, course_type, unit_number, prerequisite, tongue, hold_type, start_date,
-                 end_date, deleted=False):
+                 end_date,professor, deleted=False):
         self._id = None
         self._code = code
         self._course_name = course_name
@@ -33,7 +33,7 @@ class Course(Base):
         self._hold_type = hold_type
         self._start_date = start_date
         self._end_date = end_date
-        self._professor = None
+        self._professor_id = professor.id
         self._deleted = deleted
 
     @property
@@ -127,12 +127,12 @@ class Course(Base):
         self._end_date = end_date
 
     @property
-    def professor(self):
-        return self._professor
+    def professor_id(self):
+        return self._professor_id
 
-    @professor.setter
-    def professor(self, professor):
-        self._professor = professor
+    @professor_id.setter
+    def professor_id(self, professor_id):
+        self._professor_id = professor_id
 
     @property
     def deleted(self):
