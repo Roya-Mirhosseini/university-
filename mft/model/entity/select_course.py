@@ -1,16 +1,24 @@
 from sqlalchemy import Column, Integer, Float, String, Boolean, DateTime, ForeignKey
 from mft.model.entity.base import Base
 from sqlalchemy.orm import relationship
+from mft.model.tools.validator import *
 
 class SelectCourse(Base):
     __tablename__ = "select_course_tbl"
-    _course = Column("course", String(20), nullable=False)
-    _student = Column("student", String(40), nullable=False)
+    _id = Column("id", Integer, primary_key=True, autoincrement=True)
+
+    _course_id = Column("course_id",Integer, ForeignKey("course_tbl.id"))
+    course = relationship("Course")
+
+    _student_id = Column("student_id", Integer, ForeignKey("student_tbl.id"))
+    student = relationship("Student")
+
     _date_time = Column("date_time", DateTime, nullable=False)
     _deleted = Column("deleted", Boolean, default=False)
 
 
     def __init__(self,course,student,date_time,deleted=False):
+        self._id = None
         self._course = course
         self._student = student
         self._date_time = date_time
@@ -18,20 +26,29 @@ class SelectCourse(Base):
 
 
     @property
-    def course(self):
-        return self._course
+    def id(self):
+        return self._id
 
-    @course.setter
-    def course(self, course):
-        self._course = course
+    @id.setter
+    def id(self, id):
+        self._id = id
+
 
     @property
-    def student(self):
-        return self._student
+    def course_id(self):
+        return self._course_id
 
-    @student.setter
-    def student(self, student):
-        self._student = student
+    @course_id.setter
+    def course_id(self, course_id):
+        self._course_id = course_id
+
+    @property
+    def student_id(self):
+        return self._student_id
+
+    @student_id.setter
+    def student_id(self, student_id):
+        self._student_id = student_id
 
     @property
     def date_time(self):

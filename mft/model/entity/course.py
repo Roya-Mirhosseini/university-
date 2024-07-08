@@ -1,12 +1,12 @@
-from sqlalchemy import Column, Integer, Float, String, Boolean, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, Float, String, Boolean, Date, ForeignKey
 from mft.model.entity.base import Base
 from sqlalchemy.orm import relationship
+from mft.model.tools.validator import *
 
 
 class Course(Base):
     __tablename__ = "course_tbl"
-    _row = Column("row", Integer, primary_key=True, autoincrement=True)
-    # todo: is code considered as int or char?
+    _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _code = Column("code", String(20), nullable=False)
     _course_name = Column("course_name", String(20), nullable=False)
     _course_type = Column("course_type", String(20), nullable=False)
@@ -14,14 +14,16 @@ class Course(Base):
     _prerequisite = Column("prerequisite", String(20), nullable=False)
     _tongue = Column("tongue", String(20), nullable=False)
     _hold_type = Column("hold_type", String(20), nullable=False)
-    _start_date = Column("start_date", DateTime, nullable=False)
-    _end_date = Column("end_date", DateTime, nullable=False)
-    _professor = Column("professor", String(20), nullable=False)
+    _start_date = Column("start_date", Date, nullable=False)
+    _end_date = Column("end_date", Date, nullable=False)
     _deleted = Column("deleted", Boolean, default=False)
 
+    _professor_id = Column("professor_id", Integer, ForeignKey("professor_tbl.id"))
+    proffesor = relationship("Professor")
+
     def __init__(self, code, course_name, course_type, unit_number, prerequisite, tongue, hold_type, start_date,
-                 end_date, professor, deleted=False):
-        self._row = None
+                 end_date, deleted=False):
+        self._id = None
         self._code = code
         self._course_name = course_name
         self._course_type = course_type
@@ -31,22 +33,23 @@ class Course(Base):
         self._hold_type = hold_type
         self._start_date = start_date
         self._end_date = end_date
-        self._professor = professor
+        self._professor = None
         self._deleted = deleted
 
     @property
-    def row(self):
-        return self._row
+    def id(self):
+        return self._id
 
-    @row.setter
-    def row(self, row):
-        self._row = row
+    @id.setter
+    def row(self, id):
+        self._id = id
 
     @property
     def code(self):
         return self._code
 
     @code.setter
+    @pattern_validator(r"^[\d\-\#]{1,9}$", "invalid code !!!")
     def code(self, code):
         self._code = code
 
@@ -55,6 +58,7 @@ class Course(Base):
         return self._course_name
 
     @course_name.setter
+    @pattern_validator(r"^[a-zA-Z\s\d]{2,20}$", "invalid course name !!!")
     def course_name(self, course_name):
         self._course_name = course_name
 
@@ -63,6 +67,7 @@ class Course(Base):
         return self._course_type
 
     @course_type.setter
+    @pattern_validator(r"^(theoretical|practical)$", "invalid course type !!!")
     def course_type(self, course_type):
         self._course_type = course_type
 
@@ -72,7 +77,10 @@ class Course(Base):
 
     @unit_number.setter
     def unit_number(self, unit_number):
-        self._unit_number = unit_number
+        if isinstance(unit_number, int):
+            self._unit_number = unit_number
+        else:
+            raise ValueError("invalid unit number")
 
     @property
     def prerequisite(self):
@@ -87,6 +95,7 @@ class Course(Base):
         return self._tongue
 
     @tongue.setter
+    @pattern_validator(r"^(english|french|persion)$", "invalid tongue !!!")
     def tongue(self, tongue):
         self._tongue = tongue
 
@@ -95,6 +104,7 @@ class Course(Base):
         return self._hold_type
 
     @hold_type.setter
+    @pattern_validator(r"^(in person|distance learning)$", "invalid hold type !!!")
     def hold_type(self, hold_type):
         self._hold_type = hold_type
 
@@ -103,6 +113,7 @@ class Course(Base):
         return self._start_date
 
     @start_date.setter
+    @date_time_validator("invalid start date")
     def start_date(self, start_date):
         self._start_date = start_date
 
@@ -111,6 +122,7 @@ class Course(Base):
         return self._end_date
 
     @end_date.setter
+    @date_time_validator("invalid end date")
     def end_date(self, end_date):
         self._end_date = end_date
 
