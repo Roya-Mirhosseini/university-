@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, Float, String, Boolean, DateTime, Foreig
 from mft.model.entity.base import Base
 from mft.model.tools.validator import *
 from sqlalchemy.orm import relationship
+from mft.model.tools.validator import pattern_validator
 
 
 class Student(Base):
