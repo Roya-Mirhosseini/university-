@@ -21,17 +21,17 @@ class Student(Base):
 
     def __init__(self, name, family, father_name, national_id, degree, major, grade, phone_number,
                  email_address, deleted=False):
-        self._student_id = None
-        self._name = name
-        self._family = family
-        self._father_name = father_name
-        self._national_id = national_id
-        self._degree = degree
-        self._major = major
-        self._grade = grade
-        self._phone_number = phone_number
-        self._email_address = email_address
-        self._deleted = deleted
+        self.id = None
+        self.name = name
+        self.family = family
+        self.father_name = father_name
+        self.national_id = national_id
+        self.degree = degree
+        self.major = major
+        self.grade = grade
+        self.phone_number = phone_number
+        self.email_address = email_address
+        self.deleted = deleted
 
     @property
     def id(self):
