@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, Float, String, Boolean, Date, ForeignKey
-from mft.model.entity.base import Base
+from sqlalchemy import Column, Integer, String, Boolean, Date, ForeignKey
+from model.entity.base import Base
 from sqlalchemy.orm import relationship
-from mft.model.tools.validator import *
+from model.tools.validator import *
 
 
 class Course(Base):

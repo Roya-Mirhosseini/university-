@@ -1,7 +1,6 @@
-from mft.controller.exception.exeption import UniversityNotFoundError
-from mft.model.da.da import DataAccess
-from mft.model.entity.student import Student
-from mft.model.tools.decorators import *
+from controller.exception.exeption import UniversityNotFoundError
+from model.da.da import DataAccess
+from model.entity.student import Student
 
 
 class StudentService:

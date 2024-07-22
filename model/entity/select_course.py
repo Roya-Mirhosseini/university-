@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, Float, String, Boolean, DateTime, ForeignKey
-from mft.model.entity.base import Base
+from sqlalchemy import Column, Integer, Boolean, DateTime, ForeignKey
+from model.entity.base import Base
 from sqlalchemy.orm import relationship
-from mft.model.tools.validator import *
+
 
 class SelectCourse(Base):
     __tablename__ = "select_course_tbl"

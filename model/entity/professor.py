@@ -1,8 +1,6 @@
-from sqlalchemy import Column, Integer, Float, String, Boolean, DateTime, ForeignKey
-from mft.model.entity.base import Base
-from mft.model.tools.validator import *
-from sqlalchemy.orm import relationship
-
+from sqlalchemy import Column, Integer, String, Boolean
+from model.entity.base import Base
+from model.tools.validator import *
 
 
 class Professor(Base):

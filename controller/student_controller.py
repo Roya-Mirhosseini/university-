@@ -1,6 +1,6 @@
-from mft.model.entity.student import Student
-from mft.model.service.student_service import StudentService
-from mft.model.tools.decorators import exception_handling
+from model.entity.student import Student
+from model.service.student_service import StudentService
+from model.tools.decorators import exception_handling
 
 
 class StudentController:

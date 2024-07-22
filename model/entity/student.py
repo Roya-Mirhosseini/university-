@@ -1,8 +1,6 @@
-from sqlalchemy import Column, Integer, Float, String, Boolean, DateTime, ForeignKey
-from mft.model.entity.base import Base
-from mft.model.tools.validator import *
-from sqlalchemy.orm import relationship
-from mft.model.tools.validator import pattern_validator
+from sqlalchemy import Column, Integer, Float, String, Boolean
+from model.entity.base import Base
+from model.tools.validator import pattern_validator
 
 
 class Student(Base):
@@ -13,7 +11,7 @@ class Student(Base):
     _father_name = Column("father_name", String(20), nullable=False)
     _national_id = Column("national_id", String(10), nullable=False)
     _degree = Column("degree", String(20), nullable=False)
-    _major = Column("major", String(20), nullable=False)
+    _major = Column("major", String(40), nullable=False)
     _grade = Column("grade", Float, nullable=False)
     _phone_number = Column("phone_number", String(20), nullable=False)
     _email_address = Column("email_address", String(50), nullable=False)
