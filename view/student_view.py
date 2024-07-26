@@ -7,31 +7,25 @@ from tkinter import *
 import tkinter.messagebox as msg
 import tkinter.ttk as ttk
 
-class StudentView:
-    def student_table_click(self,row):
-        print (row)
-#_________________________________________________________checked up here
 
+class StudentView:
+    def student_table_click(self, row):
+        print(row)
+
+    # _________________________________________________________checked up here
 
     def __init__(self):
-        self.Person_da = DataAccess(Person)
-        self.medical_report_da = DataAccess(MedicalReport)
+        self.Student_da = DataAccess(Student)
         self.win = Tk()
-        self.title("Person MedicalReport View")
+        self.title("Student View")
         self.win.geometry("500x500")
 
-        person_table = Table(self.win,
-                             ["Id", "Name", "Family", "NationalId", "Status"],
-                             [60,80,80,80,50], 20, 20 ,
-                             self.person_table_click)
+        student_table = Table(self.win,
+                              ["id", "name", "family", "father_name", "national_id", "degree", "major", "grade",
+                               "phone_number", "email_address", "deleted"],
+                              [60, 80, 80, 80, 60, 60, 60, 60, 80, 80, 50], 20, 20,
+                              self.student_table_click)
 
-        self.person_table.refresh_table(self.person_da.find_all())
-
-
-
-        medical_report_table = Table(self.win,
-                             ["Id","Disease","ReportGroup","DateTime", "Deleted"],
-                             [60,80,80,80,60],300,20 ,
-                             self.medical_report_table_click)
+        self.student_table.refresh_table(self.student_da.find_all())
 
         self.win.mainloop()
