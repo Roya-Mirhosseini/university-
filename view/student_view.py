@@ -1,16 +1,17 @@
 from model.da.da import DataAccess
 from view.component.label_text import TextWithLabel
 from view.component.table import Table
-from model.entity.medical_report import MedicalReport
-from model.entity.person import Person
+from model.entity.student import Student
+from controller.student_controller import StudentController
 from tkinter import *
+import tkinter.messagebox as msg
+import tkinter.ttk as ttk
 
-class PersonMedicalReportView:
-    def person_table_click(self,row):
+class StudentView:
+    def student_table_click(self,row):
         print (row)
+#_________________________________________________________checked up here
 
-    def medical_report_table_click(self, row):
-        print(row)
 
     def __init__(self):
         self.Person_da = DataAccess(Person)
