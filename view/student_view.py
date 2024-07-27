@@ -17,7 +17,7 @@ class StudentView:
     def __init__(self):
         self.Student_da = DataAccess(Student)
         self.win = Tk()
-        self.title("Student View")
+        self.win.title("Student View")
         self.win.geometry("500x500")
 
         student_table = Table(self.win,
@@ -25,7 +25,10 @@ class StudentView:
                                "phone_number", "email_address", "deleted"],
                               [60, 80, 80, 80, 60, 60, 60, 60, 80, 80, 50], 20, 20,
                               self.student_table_click)
-
-        self.student_table.refresh_table(self.student_da.find_all())
+        Button(self.win,text  = "اضافه کردن دانشجو",command=self.save_student).place(x=300,y=300)
+        #self.student_table.refresh_table(self.student_da.find_all())
 
         self.win.mainloop()
+
+    def save_student(self):
+        print("hiiiii")
