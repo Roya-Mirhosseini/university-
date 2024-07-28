@@ -30,7 +30,6 @@ class CourseView:
 
         self.win.mainloop()
 
-    # --------------------------------------------------------------------------------------------------------------cheched up to here
     def save_course2(self):
         id = self.id.text_box.get()
         code = self.code.text_box.get()
