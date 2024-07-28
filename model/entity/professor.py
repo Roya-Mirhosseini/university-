@@ -8,22 +8,22 @@ class Professor(Base):
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _name = Column("name", String(20), nullable=False)
     _family = Column("family", String(20), nullable=False)
-    _faculty = Column("faculty", String(20), nullable=False)
+    _faculty = Column("faculty", String(40), nullable=False)
     _academic_department = Column("academic_department", String(20), nullable=False)
-    _employment_status = Column("employment_status", String(20), nullable=False)
+    _employment_status = Column("employment_status", String(40), nullable=False)
     _academic_email = Column("academic_email", String(40), nullable=False)
     _deleted = Column("deleted", Boolean, default=False)
 
     def __init__(self, name, family, faculty, academic_department, employment_status,
                  academic_email, deleted=False):
-        self._id = None
-        self._name = name
-        self._family = family
-        self._faculty = faculty
-        self._academic_department = academic_department
-        self._employment_status = employment_status
-        self._academic_email = academic_email
-        self._deleted = deleted
+        self.id = None
+        self.name = name
+        self.family = family
+        self.faculty = faculty
+        self.academic_department = academic_department
+        self.employment_status = employment_status
+        self.academic_email = academic_email
+        self.deleted = deleted
 
     @property
     def id(self):
@@ -56,7 +56,7 @@ class Professor(Base):
         return self._faculty
 
     @faculty.setter
-    @pattern_validator(r"^[a-zA-Z\s]{2,20}$", "invalid faculty !!!")
+    @pattern_validator(r"^[a-zA-Z\s]{2,50}$", "invalid faculty !!!")
     def faculty(self, faculty):
         self._faculty = faculty
 

@@ -1,4 +1,5 @@
-from controller.student_controller import *
+#from controller.student_controller import *
+from controller.professor_controller import *
 from model.entity import *
 
 #from model.entity.professor import Professor
@@ -16,4 +17,5 @@ from model.entity import *
 # print(course)
 
 
-StudentController.save("roya","mirhosseini","amir","0018453139","bachelor","electrical engineering","17","09128404487","royamirhoseini95@gmail.com")
+#StudentController.save("roya","mirhosseini","amir","0018453139","bachelor","electrical engineering","17","09128404487","royamirhoseini95@gmail.com")
+ProfessorController.save("meysam","basiri","electrical and computer","electronic","official employment","meysam.basiri@iau.ac.ir")
