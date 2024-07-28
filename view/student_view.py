@@ -12,8 +12,6 @@ class StudentView:
     def student_table_click(self, row):
         print(row)
 
-
-
     def __init__(self):
         self.Student_da = DataAccess(Student)
         self.win = Tk()
@@ -45,11 +43,12 @@ class StudentView:
         phone_number = self.phone_number.text_box.get()
         email_address = self.email_address.text_box.get()
 
-
-        print(name)
-        StudentController.save(name, family, father_name, national_id, degree, major, grade,
-                            phone_number, email_address)
-        print(grade)
+        status, student = StudentController.save(name, family, father_name, national_id, degree, major, grade,
+                                                 phone_number, email_address)
+        if status:
+            msg.showinfo("info", "the student was successfully registered")
+        else:
+            msg.showerror("showerror", student)
 
     def save_student(self):
         self.master = Tk()
