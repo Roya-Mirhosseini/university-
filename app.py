@@ -3,3 +3,4 @@ from view.professor_view import ProfessorView
 
 #ui = StudentView()
 ui = ProfessorView()
+

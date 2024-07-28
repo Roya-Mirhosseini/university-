@@ -66,3 +66,4 @@ class ProfessorView:
 
     def detaile_professor(self):
         print("how are you")
+
