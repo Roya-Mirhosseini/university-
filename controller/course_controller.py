@@ -6,19 +6,19 @@ from model.tools.decorators import exception_handling
 class CourseController:
     @classmethod
     @exception_handling
-    def save(cls, code, course_name, course_type, unit_number, prerequisite, tongue, hold_type, start_date,
+    def save(cls, code, course_name, course_type, unit_number, prerequisite, language, hold_type, start_date,
              end_date, professor):
-        course = Course(code, course_name, course_type, unit_number, prerequisite, tongue, hold_type, start_date,
+        course = Course(code, course_name, course_type, unit_number, prerequisite, language, hold_type, start_date,
                         end_date, professor)
         return True, CourseService.save(course)
 
     @classmethod
     @exception_handling
-    def edit(cls, id, code, course_name, course_type, unit_number, prerequisite, tongue, hold_type, start_date,
+    def edit(cls, id, code, course_name, course_type, unit_number, prerequisite, language, hold_type, start_date,
              end_date, professor):
-        course = Course(code, course_name, course_type, unit_number, prerequisite, tongue, hold_type, start_date,
+        course = Course(code, course_name, course_type, unit_number, prerequisite, language, hold_type, start_date,
                         end_date, professor)
-        #todo: course.id cannot be set why ???
+
         course.id = id
         return True, CourseService.edit(course)
 

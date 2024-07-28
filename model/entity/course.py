@@ -12,7 +12,7 @@ class Course(Base):
     _course_type = Column("course_type", String(20), nullable=False)
     _unit_number = Column("unit_number", Integer, nullable=False)
     _prerequisite = Column("prerequisite", String(20), nullable=False)
-    _tongue = Column("tongue", String(20), nullable=False)
+    _language = Column("language", String(20), nullable=False)
     _hold_type = Column("hold_type", String(20), nullable=False)
     _start_date = Column("start_date", Date, nullable=False)
     _end_date = Column("end_date", Date, nullable=False)
@@ -21,27 +21,27 @@ class Course(Base):
     _professor_id = Column("professor_id", Integer, ForeignKey("professor_tbl.id"))
     proffesor = relationship("Professor")
 
-    def __init__(self, code, course_name, course_type, unit_number, prerequisite, tongue, hold_type, start_date,
+    def __init__(self, code, course_name, course_type, unit_number, prerequisite, language, hold_type, start_date,
                  end_date,professor, deleted=False):
-        self._id = None
-        self._code = code
-        self._course_name = course_name
-        self._course_type = course_type
-        self._unit_number = unit_number
-        self._prerequisite = prerequisite
-        self._tongue = tongue
-        self._hold_type = hold_type
-        self._start_date = start_date
-        self._end_date = end_date
-        self._professor_id = professor.id
-        self._deleted = deleted
+        self.id = None
+        self.code = code
+        self.course_name = course_name
+        self.course_type = course_type
+        self.unit_number = unit_number
+        self.prerequisite = prerequisite
+        self.language = language
+        self.hold_type = hold_type
+        self.start_date = start_date
+        self.end_date = end_date
+        self.professor_id = professor.id
+        self.deleted = deleted
 
     @property
     def id(self):
         return self._id
 
     @id.setter
-    def row(self, id):
+    def id(self, id):
         self._id = id
 
     @property
@@ -91,13 +91,13 @@ class Course(Base):
         self._prerequisite = prerequisite
 
     @property
-    def tongue(self):
-        return self._tongue
+    def language(self):
+        return self._language
 
-    @tongue.setter
-    @pattern_validator(r"^(english|french|persion)$", "invalid tongue !!!")
-    def tongue(self, tongue):
-        self._tongue = tongue
+    @language.setter
+    @pattern_validator(r"^(english|french|persian)$", "invalid language !!!")
+    def language(self, language):
+        self._language = language
 
     @property
     def hold_type(self):

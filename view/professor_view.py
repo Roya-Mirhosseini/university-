@@ -30,7 +30,6 @@ class ProfessorView:
 
         self.win.mainloop()
 
-    # --------------------------------------------------------------------------------------------------------------cheched up to here
     def save_professor2(self):
         id = self.id.text_box.get()
         name = self.name.text_box.get()
