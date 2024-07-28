@@ -27,3 +27,4 @@ def log(function):
         return output
 
     return inner
+

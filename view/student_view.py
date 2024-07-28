@@ -50,6 +50,7 @@ class StudentView:
         else:
             msg.showerror("showerror", student)
 
+
     def save_student(self):
         self.master = Tk()
         self.master.geometry("400x400")
