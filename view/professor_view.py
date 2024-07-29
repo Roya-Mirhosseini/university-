@@ -14,24 +14,24 @@ class ProfessorView:
 
     def __init__(self):
         self.Professor_da = DataAccess(Professor)
-        self.win = Tk()
-        self.win.title("Professor View")
-        self.win.geometry("1000x800")
-
-        professor_table = Table(self.win,
-                                ["id", "name", "family", "faculty", "academic_department", "employment_status",
-                                 "academic_email", "deleted"],
-                                [60, 80, 80, 120, 150, 150, 120, 50], 20, 20,
-                                self.professor_table_click)
-        Button(self.win, text="اضافه کردن استاد ", command=self.save_professor).place(x=100, y=300)
-        Button(self.win, text="ویرایش اطلاعات استاد", command=self.edit_professor).place(x=250, y=300)
-        Button(self.win, text="نمایش اطلاعات کامل استاد", command=self.detaile_professor).place(x=400, y=300)
-        # self.student_table.refresh_table(self.student_da.find_all())
-
-        self.win.mainloop()
+        # self.win = Tk()
+        # self.win.title("Professor View")
+        # self.win.geometry("1000x800")
+        #
+        # professor_table = Table(self.win,
+        #                         ["id", "name", "family", "faculty", "academic_department", "employment_status",
+        #                          "academic_email", "deleted"],
+        #                         [60, 80, 80, 120, 150, 150, 120, 50], 20, 20,
+        #                         self.professor_table_click)
+        # # Button(self.win, text="اضافه کردن استاد ", command=self.save_professor).place(x=100, y=300)
+        # # Button(self.win, text="ویرایش اطلاعات استاد", command=self.edit_professor).place(x=250, y=300)
+        # # Button(self.win, text="نمایش اطلاعات کامل استاد", command=self.detaile_professor).place(x=400, y=300)
+        # # self.student_table.refresh_table(self.student_da.find_all())
+        #
+        # self.win.mainloop()
 
     def save_professor2(self):
-        id = self.id.text_box.get()
+        #id = self.id.text_box.get()
         name = self.name.text_box.get()
         family = self.family.text_box.get()
         faculty = self.faculty.text_box.get()
@@ -49,7 +49,7 @@ class ProfessorView:
     def save_professor(self):
         self.master = Tk()
         self.master.geometry("400x400")
-        self.id = TextWithLabel(self.master, "professor id", 10, 30)
+        #self.id = TextWithLabel(self.master, "professor id", 10, 30)
         self.name = TextWithLabel(self.master, "professor name", 10, 60)
         self.family = TextWithLabel(self.master, "professor family", 10, 90)
         self.faculty = TextWithLabel(self.master, "faculty", 10, 120)

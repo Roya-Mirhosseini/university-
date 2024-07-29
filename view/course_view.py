@@ -14,24 +14,24 @@ class CourseView:
 
     def __init__(self):
         self.Course_da = DataAccess(Course)
-        self.win = Tk()
-        self.win.title("Course View")
-        self.win.geometry("1000x800")
-
-        course_table = Table(self.win,
-                             ["id", "code", "course_name", "course_type", "unit_number", "prerequisite",
-                              "language", "hold_type", "start_date", "end_date", "professor_id", "deleted"],
-                             [60, 60, 80, 80, 60, 170, 80, 80, 120, 120, 60, 50], 20, 20,
-                             self.course_table_click)
-        Button(self.win, text="اضافه کردن درس ", command=self.save_course).place(x=100, y=300)
-        Button(self.win, text="ویرایش اطلاعات درس", command=self.edit_course).place(x=250, y=300)
-        Button(self.win, text="نمایش اطلاعات کامل درس", command=self.detaile_course).place(x=400, y=300)
+        # self.win = Tk()
+        # self.win.title("Course View")
+        # self.win.geometry("1000x800")
+        #
+        # course_table = Table(self.win,
+        #                      ["id", "code", "course_name", "course_type", "unit_number", "prerequisite",
+        #                       "language", "hold_type", "start_date", "end_date", "professor_id", "deleted"],
+        #                      [60, 60, 80, 80, 60, 170, 80, 80, 120, 120, 60, 50], 20, 20,
+        #                      self.course_table_click)
+        # Button(self.win, text="اضافه کردن درس ", command=self.save_course).place(x=100, y=300)
+        # Button(self.win, text="ویرایش اطلاعات درس", command=self.edit_course).place(x=250, y=300)
+        # Button(self.win, text="نمایش اطلاعات کامل درس", command=self.detaile_course).place(x=400, y=300)
         # self.student_table.refresh_table(self.student_da.find_all())
 
-        self.win.mainloop()
+        # self.win.mainloop()
 
     def save_course2(self):
-        id = self.id.text_box.get()
+        #id = self.id.text_box.get()
         code = self.code.text_box.get()
         course_name = self.course_name.text_box.get()
         course_type = self.course_type.text_box.get()
@@ -53,7 +53,7 @@ class CourseView:
     def save_course(self):
         self.master = Tk()
         self.master.geometry("400x400")
-        self.id = TextWithLabel(self.master, "course id", 10, 30)
+        #self.id = TextWithLabel(self.master, "course id", 10, 30)
         self.code = TextWithLabel(self.master, "code", 10, 60)
         self.course_name = TextWithLabel(self.master, "course name", 10, 90)
         self.course_type = TextWithLabel(self.master, "course type", 10, 120)
@@ -69,7 +69,15 @@ class CourseView:
         self.master.mainloop()
 
     def edit_course(self):
-        pass
+        self.master = Tk()
+        self.master.geometry("400x300")
+        self.course_id = TextWithLabel(self.master, "search course", 10, 300)
+        Button(self.master, text="search", command=self.search).place(x=10, y=350)
+
+        self.master.mainloop()
+    def search(self):
+        print(self.course_id.text_box)
+        # CourseController.find_by_id()
 
     def detaile_course(self):
         pass

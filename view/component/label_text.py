@@ -8,13 +8,20 @@ class TextWithLabel:
         self.x = x
         self.y = y
         self.distance = distance
-        self.variable = StringVar()
+        self._variable = StringVar()
 
         Label(master, text=text).place(x=x, y=y)
 
         if disabled:
-            self.text_box = Entry(master, textvariable=self.variable, state="readonly")
+            self.text_box = Entry(master, textvariable=self._variable, state="readonly")
             self.text_box.place(x=x + distance, y=y)
         else:
-            self.text_box = Entry(master, textvariable=self.variable)
+            self.text_box = Entry(master, textvariable=self._variable,)
             self.text_box.place(x=x + distance, y=y)
+    def get_variable(self):
+        return self._variable.get()
+
+    def set_variable(self, variable):
+        self._variable.set(variable)
+
+    text = property(get_variable, set_variable)

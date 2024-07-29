@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, Date, ForeignKey
+from model.entity.professor import Professor
 from model.entity.base import Base
 from sqlalchemy.orm import relationship
 from model.tools.validator import *
@@ -77,6 +78,10 @@ class Course(Base):
 
     @unit_number.setter
     def unit_number(self, unit_number):
+        try:
+            unit_number = int(unit_number)
+        except:
+            pass
         if isinstance(unit_number, int):
             self._unit_number = unit_number
         else:
@@ -113,7 +118,7 @@ class Course(Base):
         return self._start_date
 
     @start_date.setter
-    @date_time_validator("invalid start date")
+    #@date_time_validator("invalid start date")
     def start_date(self, start_date):
         self._start_date = start_date
 
@@ -122,7 +127,7 @@ class Course(Base):
         return self._end_date
 
     @end_date.setter
-    @date_time_validator("invalid end date")
+    #@date_time_validator("invalid end date")
     def end_date(self, end_date):
         self._end_date = end_date
 
