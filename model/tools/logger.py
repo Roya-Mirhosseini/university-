@@ -5,7 +5,7 @@ import sys
 
 class Logger:
     logging.basicConfig(
-        level=logging.DEBUG,
+        level=logging.ERROR,
         format="%(asctime)s - %(levelname)5s - %(message)s",
         encoding="UTF-8",
         handlers=[

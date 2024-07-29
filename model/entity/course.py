@@ -19,11 +19,12 @@ class Course(Base):
     _end_date = Column("end_date", Date, nullable=False)
     _deleted = Column("deleted", Boolean, default=False)
 
-    _professor_id = Column("professor_id", Integer, ForeignKey("professor_tbl.id"))
+    _professor_id = Column( Integer, ForeignKey("professor_tbl.id"))
     proffesor = relationship("Professor")
 
     def __init__(self, code, course_name, course_type, unit_number, prerequisite, language, hold_type, start_date,
                  end_date,professor, deleted=False):
+        print(professor)
         self.id = None
         self.code = code
         self.course_name = course_name
@@ -34,7 +35,7 @@ class Course(Base):
         self.hold_type = hold_type
         self.start_date = start_date
         self.end_date = end_date
-        self.professor_id = professor.id
+        self.professor_id = professor
         self.deleted = deleted
 
     @property
