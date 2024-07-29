@@ -9,39 +9,16 @@ import tkinter.ttk as ttk
 
 
 class StudentView:
-    def student_table_click(self, row):
-        print(row)
-
-    def __init__(self):
-        self.Student_da = DataAccess(Student)
-        # self.win = Tk()
-        # self.win.title("Student View")
-        # self.win.geometry("1000x800")
-        #
-        # student_table = Table(self.win,
-        #                       ["id", "name", "family", "father_name", "national_id", "degree", "major", "grade",
-        #                        "phone_number", "email_address", "deleted"],
-        #                       [60, 80, 80, 80, 100, 80, 80, 60, 120, 120, 50], 20, 20,
-        #                       self.student_table_click)
-        # # Button(self.win, text="اضافه کردن دانشجو", command=self.save_student).place(x=100, y=300)
-        # # Button(self.win, text="ویرایش اطلاعات دانشجو", command=self.edit_student).place(x=250, y=300)
-        # # Button(self.win, text="نمایش اطلاعات کامل دانشجو", command=self.detaile_student).place(x=400, y=300)
-        # # self.student_table.refresh_table(self.student_da.find_all())
-        #
-        # self.win.mainloop()
-
-    # --------------------------------------------------------------------------------------------------------------cheched up to here
     def save_student2(self):
-      #  id = self.id.text_box.get()
-        name = self.name.text_box.get()
-        family = self.family.text_box.get()
-        father_name = self.father_name.text_box.get()
-        national_id = self.natinal_id.text_box.get()
-        degree = self.degree.text_box.get()
-        major = self.major.text_box.get()
-        grade = self.grade.text_box.get()
-        phone_number = self.phone_number.text_box.get()
-        email_address = self.email_address.text_box.get()
+        name = self.name.get_variable()
+        family = self.family.get_variable()
+        father_name = self.father_name.get_variable()
+        national_id = self.natinal_id.get_variable()
+        degree = self.degree.get_variable()
+        major = self.major.get_variable()
+        grade = self.grade.get_variable()
+        phone_number = self.phone_number.get_variable()
+        email_address = self.email_address.get_variable()
 
         status, student = StudentController.save(name, family, father_name, national_id, degree, major, grade,
                                                  phone_number, email_address)
@@ -50,11 +27,9 @@ class StudentView:
         else:
             msg.showerror("showerror", student)
 
-
     def save_student(self):
         self.master = Tk()
-        self.master.geometry("400x400")
-      #  self.id = TextWithLabel(self.master, "student id", 10, 30)
+        self.master.geometry("800x800")
         self.name = TextWithLabel(self.master, "student name", 10, 60)
         self.family = TextWithLabel(self.master, "student family", 10, 90)
         self.father_name = TextWithLabel(self.master, "father name", 10, 120)
@@ -69,32 +44,37 @@ class StudentView:
 
     def edit_student(self):
         self.master = Tk()
-        self.master.geometry("400x300")
+        self.master.geometry("600x400")
         self.std_id = TextWithLabel(self.master, "search student", 10, 20)
-        Button(self.master, text="search", command=self.search).place(x=10, y=50)
+        Button(self.master, text="search", command=self.search).place(x=10, y=40)
 
         self.master.mainloop()
+
     def search(self):
-        id = self.std_id.text_box.get()
+        id = self.std_id.get_variable()
         id = int(id)
-        status , student = StudentController.find_by_id(id)
+        status, student = StudentController.find_by_id(id)
         if status:
             print(student)
-            self.name = TextWithLabel(self.master, "student name", 10, 60)
-            self.name.set_variable("djisjkd")
-            self.family = TextWithLabel(self.master, "student family", 10, 90)
-            self.father_name = TextWithLabel(self.master, "father name", 10, 120)
-            self.natinal_id = TextWithLabel(self.master, "national id", 10, 150)
-            self.degree = TextWithLabel(self.master, "degree", 10, 180)
-            self.major = TextWithLabel(self.master, "major", 10, 210)
-            self.grade = TextWithLabel(self.master, "grade", 10, 240)
-            self.phone_number = TextWithLabel(self.master, "phone", x=10, y=270)
-            self.email_address = TextWithLabel(self.master, "email address", 10, 300)
+            self.name = TextWithLabel(self.master, "student name", 10, 70)
+            self.name.set_variable(student.name)
+            self.family = TextWithLabel(self.master, "student family", 10, 100)
+            self.family.set_variable(student.family)
+            self.father_name = TextWithLabel(self.master, "father name", 10, 130)
+            self.father_name.set_variable(student.father_name)
+            self.natinal_id = TextWithLabel(self.master, "national id", 10, 160)
+            self.natinal_id.set_variable(student.national_id)
+            self.degree = TextWithLabel(self.master, "degree", 10, 190)
+            self.degree.set_variable(student.degree)
+            self.major = TextWithLabel(self.master, "major", 10, 220)
+            self.major.set_variable(student.major)
+            self.grade = TextWithLabel(self.master, "grade", 10, 250)
+            self.grade.set_variable(student.grade)
+            self.phone_number = TextWithLabel(self.master, "phone", x=10, y=280)
+            self.phone_number.set_variable(student.phone_number)
+            self.email_address = TextWithLabel(self.master, "email address", 10, 310)
+            self.email_address.set_variable(student.email_address)
             Button(self.master, text="edit", command=self.save_student2).place(x=10, y=350)
-
-
-
-
 
     def detaile_student(self):
         print("how are you")
