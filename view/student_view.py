@@ -47,8 +47,25 @@ class StudentView:
         self.master.geometry("600x400")
         self.std_id = TextWithLabel(self.master, "search student", 10, 20)
         Button(self.master, text="search", command=self.search).place(x=10, y=40)
-
         self.master.mainloop()
+
+    def edit_student2(self):
+        id = self.std_id.get_variable()
+        name = self.name.get_variable()
+        family = self.family.get_variable()
+        father_name = self.father_name.get_variable()
+        national_id = self.natinal_id.get_variable()
+        degree = self.degree.get_variable()
+        major = self.major.get_variable()
+        grade = self.grade.get_variable()
+        phone_number = self.phone_number.get_variable()
+        email_address = self.email_address.get_variable()
+        status, student = StudentController.save(name, family, father_name, national_id, degree, major, grade,
+                                                 phone_number, email_address)
+        if status:
+            msg.showinfo("info", "the student was successfully registered")
+        else:
+            msg.showerror("showerror", student)
 
     def search(self):
         id = self.std_id.get_variable()
@@ -74,7 +91,7 @@ class StudentView:
             self.phone_number.set_variable(student.phone_number)
             self.email_address = TextWithLabel(self.master, "email address", 10, 310)
             self.email_address.set_variable(student.email_address)
-            Button(self.master, text="edit", command=self.save_student2).place(x=10, y=350)
+            Button(self.master, text="edit", command=self.edit_student2).place(x=10, y=350)
 
     def detaile_student(self):
         print("how are you")
