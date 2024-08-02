@@ -8,8 +8,8 @@ import tkinter.messagebox as msg
 import tkinter.ttk as ttk
 from view.student_view import StudentView
 from view.professor_view import ProfessorView
-
 from view.course_view import CourseView
+from view.select_course_view import SelectCourseView
 
 
 class MainView:
@@ -27,6 +27,7 @@ class MainView:
         Button(self.win, text="اضافه کردن درس ", command=self.save_course).place(x=100, y=300)
         Button(self.win, text="ویرایش اطلاعات درس", command=self.edit_course).place(x=250, y=300)
         Button(self.win, text="نمایش اطلاعات کامل درس", command=self.detaile_course).place(x=400, y=300)
+        Button(self.win, text="انتخاب واحد", command=self.choose_course).place(x=100, y=400)
         self.win.mainloop()
 
     def save_student(self):
@@ -60,4 +61,7 @@ class MainView:
         edit.edit_course()
 
     def detaile_course(self):
+        pass
+
+    def choose_course(self):
         pass
