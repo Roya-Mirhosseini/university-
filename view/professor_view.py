@@ -31,13 +31,12 @@ class ProfessorView:
         # self.win.mainloop()
 
     def save_professor2(self):
-        #id = self.id.text_box.get()
-        name = self.name.text_box.get()
-        family = self.family.text_box.get()
-        faculty = self.faculty.text_box.get()
-        academic_department = self.academic_department.text_box.get()
-        employment_status = self.employment_status.text_box.get()
-        academic_email = self.academic_email.text_box.get()
+        name = self.name.get_variable()
+        family = self.family.get_variable()
+        faculty = self.faculty.get_variable()
+        academic_department = self.academic_department.get_variable()
+        employment_status = self.employment_status.get_variable()
+        academic_email = self.academic_email.get_variable()
 
         status, professor = ProfessorController.save(name, family, faculty, academic_department, employment_status,
                                                      academic_email)
@@ -48,8 +47,8 @@ class ProfessorView:
 
     def save_professor(self):
         self.master = Tk()
-        self.master.geometry("400x400")
-        #self.id = TextWithLabel(self.master, "professor id", 10, 30)
+        self.master.geometry("800x800")
+
         self.name = TextWithLabel(self.master, "professor name", 10, 60)
         self.family = TextWithLabel(self.master, "professor family", 10, 90)
         self.faculty = TextWithLabel(self.master, "faculty", 10, 120)
@@ -61,8 +60,47 @@ class ProfessorView:
         self.master.mainloop()
 
     def edit_professor(self):
-        print("hello")
+        self.master = Tk()
+        self.master.geometry("600x400")
+        self.professor_id = TextWithLabel(self.master, "search professor", 10, 20)
+        Button(self.master, text="search", command=self.search).place(x=10, y=40)
+        self.master.mainloop()
+
+    def edit_professor2(self):
+        id = self.professor_id.get_variable()
+        name = self.name.get_variable()
+        family = self.family.get_variable()
+        faculty = self.faculty.get_variable()
+        academic_department = self.academic_department.get_variable()
+        employment_status = self.employment_status.get_variable()
+        academic_email = self.academic_email.get_variable()
+        status, professor = ProfessorController.save(name, family, faculty, academic_department, employment_status,
+                                                     academic_email)
+        if status:
+            msg.showinfo("info", "the professor was successfully edited")
+        else:
+            msg.showerror("showerror", professor)
+
+    def search(self):
+        id = self.professor_id.get_variable()
+        id = int(id)
+        status, professor = ProfessorController.find_by_id(id)
+        if status:
+            print(professor)
+            self.name = TextWithLabel(self.master, "professor name", 10, 70)
+            self.name.set_variable(professor.name)
+            self.family = TextWithLabel(self.master, "professor family", 10, 100)
+            self.family.set_variable(professor.family)
+            self.faculty = TextWithLabel(self.master, "faculty", 10, 130)
+            self.faculty.set_variable(professor.faculty)
+            self.academic_department = TextWithLabel(self.master, "academic department", 10, 160)
+            self.academic_department.set_variable(professor.academic_department)
+            self.employment_status = TextWithLabel(self.master, "employment status", 10, 190)
+            self.employment_status.set_variable(professor.employment_status)
+            self.academic_email = TextWithLabel(self.master, "academic email", 10, 220)
+            self.academic_email.set_variable(professor.academic_email)
+
+            Button(self.master, text="edit", command=self.edit_professor2).place(x=10, y=350)
 
     def detaile_professor(self):
         print("how are you")
-

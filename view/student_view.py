@@ -30,6 +30,7 @@ class StudentView:
     def save_student(self):
         self.master = Tk()
         self.master.geometry("800x800")
+
         self.name = TextWithLabel(self.master, "student name", 10, 60)
         self.family = TextWithLabel(self.master, "student family", 10, 90)
         self.father_name = TextWithLabel(self.master, "father name", 10, 120)
@@ -39,6 +40,7 @@ class StudentView:
         self.grade = TextWithLabel(self.master, "grade", 10, 240)
         self.phone_number = TextWithLabel(self.master, "phone", x=10, y=270)
         self.email_address = TextWithLabel(self.master, "email address", 10, 300)
+
         Button(self.master, text="save", command=self.save_student2).place(x=10, y=350)
         self.master.mainloop()
 
@@ -63,7 +65,7 @@ class StudentView:
         status, student = StudentController.save(name, family, father_name, national_id, degree, major, grade,
                                                  phone_number, email_address)
         if status:
-            msg.showinfo("info", "the student was successfully registered")
+            msg.showinfo("info", "the student was successfully edited")
         else:
             msg.showerror("showerror", student)
 
