@@ -98,15 +98,15 @@ class StudentView:
     def student_table_click(self, row):
         print(row)
     def detaile_student(self):
-        self.win = Tk()
-        self.win.title("Student View")
-        self.win.geometry("1000x800")
+        self.master = Tk()
+        self.master.title("Student View")
+        self.master.geometry("1000x800")
 
-        student_table = Table(self.win,
+        student_table = Table(self.master,
                                 ["id","name", "family", "father name", "national id", "degree",
                                  "major", "grade","phone number","email address","deleted"],
-                                [60, 80, 80, 80, 150, 80, 80, 60,150,150], 20, 20,
+                                [60, 80, 80, 80, 150, 80, 80, 60,150,150,50], 20, 20,
                                 self.student_table_click)
 
-        self.win.mainloop()
+        self.master.mainloop()
 

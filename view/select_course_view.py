@@ -34,7 +34,9 @@ class SelectCourseView:
 
     def save_select_course2(self):
         course_id = self.course_id.get_variable()
+        course_id = int(course_id)
         student_id = self.student_id.get_variable()
+        student_id = int(student_id)
         #date_time = self.date_time.get_variable()
 
         status, select_course = SelectCourseController.save(course_id, student_id)
