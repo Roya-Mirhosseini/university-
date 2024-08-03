@@ -109,3 +109,4 @@ class StudentView:
                                 self.student_table_click)
 
         self.win.mainloop()
+

@@ -16,6 +16,7 @@ class Table:
             self.table.column(col, width=self.widths[col])
             self.table.heading(col, text=self.headers[col])
 
+
         self.table.bind("<ButtonRelease>", self.select_table)
         self.table.bind("<KeyRelease>", self.select_table)
         self.table.place(x=x, y=y)

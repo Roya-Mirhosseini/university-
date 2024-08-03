@@ -25,6 +25,8 @@ class SelectCourse(Base):
         self._deleted = deleted
 
 
+
+
     @property
     def id(self):
         return self._id

@@ -38,6 +38,7 @@ class Course(Base):
         self.professor_id = professor
         self.deleted = deleted
 
+
     @property
     def id(self):
         return self._id

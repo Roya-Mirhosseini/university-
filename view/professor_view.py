@@ -12,6 +12,7 @@ class ProfessorView:
     def professor_table_click(self, row):
         print(row)
 
+
     def __init__(self):
         self.Professor_da = DataAccess(Professor)
         # self.win = Tk()

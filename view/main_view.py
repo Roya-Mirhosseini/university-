@@ -42,6 +42,7 @@ class MainView:
         detaile = StudentView()
         detaile.detaile_student()
 
+
     def save_professor(self):
         save = ProfessorView()
         save.save_professor()
