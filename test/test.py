@@ -1,10 +1,11 @@
-# from controller.student_controller import *
+from controller.student_controller import *
 # from controller.professor_controller import *
 from controller.course_controller import *
-from controller.professor_controller import ProfessorController
+#from controller.professor_controller import ProfessorController
+from controller.select_course_controller import *
 from model.entity import *
 from model.entity.professor import Professor
-
+from datetime import datetime
 # from model.entity.professor import Professor
 # from model.entity.course import Course
 
@@ -20,8 +21,11 @@ from model.entity.professor import Professor
 
 
 # StudentController.save("roya","mirhosseini","amir","0018453139","bachelor","electrical engineering","17","09128404487","royamirhoseini95@gmail.com")
-status,professor = ProfessorController.save("meysam","basiri","electrical and computer","electronic","official employment","meysam.basiri@iau.ac.ir")
+#status,professor = ProfessorController.save("meysam","basiri","electrical and computer","electronic","official employment","meysam.basiri@iau.ac.ir")
 #professor = Professor("meysam","basiri","engineering","electrical","contractual employment","meysam.basiri@iau.ac.ir")
 
-CourseController.save("4567", "digital systems 2", "theoretical", "3", "digital systems 1", "english", "in person",
-                      "2024-07-07", "2024-07-07", 1)
+#CourseController.save("4567", "digital systems 2", "theoretical", "3", "digital systems 1", "english", "in person",
+#                      "2024-07-07", "2024-07-07", 1)
+status,student = StudentController.save("sara","jelveh","ahmad","0098783545","bachelor","art","14","09123459876","gfgf@gmail.com")
+status,course = CourseController.save("5678","mathmatic","theoretical","1","physics","english","in person","3-3-2024","2-2-2026","1")
+SelectCourseController.save("1","1","2024-2-3")
