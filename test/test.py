@@ -27,5 +27,6 @@ from datetime import datetime
 #CourseController.save("4567", "digital systems 2", "theoretical", "3", "digital systems 1", "english", "in person",
 #                      "2024-07-07", "2024-07-07", 1)
 status,student = StudentController.save("sara","jelveh","ahmad","0098783545","bachelor","art","14","09123459876","gfgf@gmail.com")
-status,course = CourseController.save("5678","mathmatic","theoretical","1","physics","english","in person","3-3-2024","2-2-2026","1")
-SelectCourseController.save("1","1","2024-2-3")
+status,course = CourseController.save("5678","mathmatic","theoretical","1","physics","english","in person","2024-03-03","2025-04-04","1")
+status , weijewui = SelectCourseController.save(1,1,"2024-2-3")
+print(status,weijewui)

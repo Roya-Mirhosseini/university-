@@ -19,8 +19,8 @@ class SelectCourse(Base):
 
     def __init__(self,course,student,date_time,deleted=False):
         self._id = None
-        self._course = course
-        self._student = student
+        self._course_id = course
+        self._student_id = student
         self._date_time = date_time
         self._deleted = deleted
 

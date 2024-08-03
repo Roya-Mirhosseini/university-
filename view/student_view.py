@@ -9,6 +9,7 @@ import tkinter.ttk as ttk
 
 
 class StudentView:
+
     def save_student2(self):
         name = self.name.get_variable()
         family = self.family.get_variable()
@@ -94,6 +95,17 @@ class StudentView:
             self.email_address = TextWithLabel(self.master, "email address", 10, 310)
             self.email_address.set_variable(student.email_address)
             Button(self.master, text="edit", command=self.edit_student2).place(x=10, y=350)
-
+    def student_table_click(self, row):
+        print(row)
     def detaile_student(self):
-        print("how are you")
+        self.win = Tk()
+        self.win.title("Student View")
+        self.win.geometry("1000x800")
+
+        student_table = Table(self.win,
+                                ["id","name", "family", "father name", "national id", "degree",
+                                 "major", "grade","phone number","email address","deleted"],
+                                [60, 80, 80, 80, 150, 80, 80, 60,150,150], 20, 20,
+                                self.student_table_click)
+
+        self.win.mainloop()

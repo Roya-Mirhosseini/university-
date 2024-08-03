@@ -39,7 +39,8 @@ class MainView:
         edit.edit_student()
 
     def detaile_student(self):
-        pass
+        detaile = StudentView()
+        detaile.detaile_student()
 
     def save_professor(self):
         save = ProfessorView()
