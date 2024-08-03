@@ -27,7 +27,7 @@ class MainView:
         Button(self.win, text="اضافه کردن درس ", command=self.save_course).place(x=100, y=300)
         Button(self.win, text="ویرایش اطلاعات درس", command=self.edit_course).place(x=250, y=300)
         Button(self.win, text="نمایش اطلاعات کامل درس", command=self.detaile_course).place(x=400, y=300)
-        Button(self.win, text="انتخاب واحد", command=self.choose_course).place(x=100, y=400)
+        Button(self.win, text="انتخاب واحد", command=self.save_select_course).place(x=100, y=400)
         self.win.mainloop()
 
     def save_student(self):
@@ -65,5 +65,7 @@ class MainView:
     def detaile_course(self):
         pass
 
-    def choose_course(self):
-        pass
+    def save_select_course(self):
+        save = SelectCourseView
+        save.save_select_course()
+

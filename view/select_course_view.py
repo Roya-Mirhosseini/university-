@@ -6,14 +6,16 @@ from controller.select_course_controller import SelectCourseController
 from tkinter import *
 import tkinter.messagebox as msg
 import tkinter.ttk as ttk
+import datetime
+now = datetime.datetime.now()
 
 
 class SelectCourseView:
-    def select_course_table_click(self, row):
-        print(row)
-
-    def __init__(self):
-        self.SelectCourse_da = DataAccess(SelectCourse)
+    # def select_course_table_click(self, row):
+    #     print(row)
+    #
+    # def __init__(self):
+    #     self.SelectCourse_da = DataAccess(SelectCourse)
         # self.win = Tk()
         # self.win.title("Course View")
         # self.win.geometry("1000x800")
@@ -31,11 +33,11 @@ class SelectCourseView:
         # self.win.mainloop()
 
     def save_select_course2(self):
-        course = self.course.get_variable()
-        student = self.student.get_variable()
-        date_time = self.date_time.get_variable()
+        course_id = self.course_id.get_variable()
+        student_id = self.student_id.get_variable()
+        #date_time = self.date_time.get_variable()
 
-        status, select_course = SelectCourseController.save(course, student, date_time)
+        status, select_course = SelectCourseController.save(course_id, student_id)
         if status:
             msg.showinfo("info", "the select course was successfully created")
         else:
@@ -45,9 +47,9 @@ class SelectCourseView:
         self.master = Tk()
         self.master.geometry("400x400")
 
-        self.course = TextWithLabel(self.master, "course", 10, 60)
-        self.student = TextWithLabel(self.master, "student", 10, 90)
-        self.date_time = TextWithLabel(self.master, "date time", 10, 120)
+        self.course_id = TextWithLabel(self.master, "course", 10, 60)
+        self.student_id = TextWithLabel(self.master, "student", 10, 90)
+        #self.date_time = TextWithLabel(self.master, "date time", 10, 120)
 
         Button(self.master, text="save", command=self.save_select_course2).place(x=10, y=350)
 
@@ -109,5 +111,5 @@ class SelectCourseView:
     #
     #         Button(self.master, text="edit", command=self.edit_course2).place(x=10, y=350)
 
-    def detaile_course(self):
-        pass
+    # def detaile_course(self):
+    #     pass
