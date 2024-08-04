@@ -100,13 +100,20 @@ class StudentView:
     def detaile_student(self):
         self.master = Tk()
         self.master.title("Student View")
-        self.master.geometry("1000x800")
+        self.master.geometry("1100x800")
 
         student_table = Table(self.master,
                                 ["id","name", "family", "father name", "national id", "degree",
                                  "major", "grade","phone number","email address","deleted"],
                                 [60, 80, 80, 80, 150, 80, 80, 60,150,150,50], 20, 20,
                                 self.student_table_click)
-
+        status , data_ = StudentController.find_all()
+        data_list = []
+        for data in data_:
+            print(data)
+            data_list.append([data.id,data.name,data.family,data.father_name,data.national_id,data.degree,
+                              data.major,data.grade,data.phone_number,data.email_address,data.deleted])
+        print(data_list)
+        student_table.refresh_table(data_list)
         self.master.mainloop()
 

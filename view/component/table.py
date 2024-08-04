@@ -27,8 +27,13 @@ class Table:
 
         if data_list:
             for data in data_list:
-                self.table.insert("", END, values=tuple(data.values()))
+                self.table.insert("", END, values=tuple(data))
 
     def select_table(self, event):
         data = self.table.item(self.table.focus())["values"]
         self.select_function(data)
+
+    def reset_table(self):
+        for i in self.table.get_children():
+            self.table.delete(i)
+
