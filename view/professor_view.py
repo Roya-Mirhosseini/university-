@@ -62,7 +62,7 @@ class ProfessorView:
 
     def edit_professor(self):
         self.master = Tk()
-        self.master.geometry("600x400")
+        self.master.geometry("500x500")
         self.professor_id = TextWithLabel(self.master, "search professor", 10, 20,distance=120)
         Button(self.master, text="search", command=self.search).place(x=10, y=40)
         self.master.mainloop()
@@ -106,12 +106,12 @@ class ProfessorView:
     def detaile_professor(self):
         self.master = Tk()
         self.master.title("Professor View")
-        self.master.geometry("1100x800")
+        self.master.geometry("1000x400")
 
         professor_table = Table(self.master,
                               ["id", "name", "family", "faculty", "academic department", "employment status",
                                "academic email", "deleted"],
-                              [60, 80, 80, 80, 100, 100, 150, 50], 20, 20,
+                              [60, 80, 80, 150, 150, 150, 150, 50], 20, 20,
                               self.professor_table_click)
         status, data_ = ProfessorController.find_all()
         data_list = []

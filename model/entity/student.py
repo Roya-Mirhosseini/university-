@@ -9,7 +9,7 @@ class Student(Base):
     _name = Column("name", String(20), nullable=False)
     _family = Column("family", String(20), nullable=False)
     _father_name = Column("father_name", String(20), nullable=False)
-    _national_id = Column("national_id", String(10), nullable=False)
+    _national_id = Column("national_id", String(15), nullable=False)
     _degree = Column("degree", String(20), nullable=False)
     _major = Column("major", String(40), nullable=False)
     _grade = Column("grade", Float, nullable=False)

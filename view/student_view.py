@@ -47,8 +47,8 @@ class StudentView:
 
     def edit_student(self):
         self.master = Tk()
-        self.master.geometry("600x400")
-        self.std_id = TextWithLabel(self.master, "search student", 10, 20)
+        self.master.geometry("500x500")
+        self.std_id = TextWithLabel(self.master, "search student", 10, 20,distance=100)
         Button(self.master, text="search", command=self.search).place(x=10, y=40)
         self.master.mainloop()
 
@@ -100,12 +100,12 @@ class StudentView:
     def detaile_student(self):
         self.master = Tk()
         self.master.title("Student View")
-        self.master.geometry("1100x800")
+        self.master.geometry("1200x400")
 
         student_table = Table(self.master,
                                 ["id","name", "family", "father name", "national id", "degree",
                                  "major", "grade","phone number","email address","deleted"],
-                                [60, 80, 80, 80, 150, 80, 80, 60,150,150,50], 20, 20,
+                                [60, 80, 120, 80, 150, 80, 150, 60,150,150,50], 20, 20,
                                 self.student_table_click)
         status , data_ = StudentController.find_all()
         data_list = []

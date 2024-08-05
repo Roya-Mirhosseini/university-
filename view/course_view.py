@@ -69,7 +69,7 @@ class CourseView:
 
     def edit_course(self):
         self.master = Tk()
-        self.master.geometry("400x300")
+        self.master.geometry("500x500")
         self.course_id = TextWithLabel(self.master, "search course", 10, 20)
         Button(self.master, text="search", command=self.search).place(x=10, y=40)
         self.master.mainloop()
@@ -125,12 +125,12 @@ class CourseView:
     def detaile_course(self):
         self.master = Tk()
         self.master.title("Course View")
-        self.master.geometry("1100x800")
+        self.master.geometry("1200x400")
 
         course_table = Table(self.master,
                                 ["id", "code", "course name", "course type", "unit number", "prerequisite",
                                  "language", "hold type","start date","end date","professor id","deleted"],
-                                [60, 80, 80, 80, 60, 150, 80,100,100,100,60, 50], 20, 20,
+                                [60, 80, 120, 80, 100, 150, 80,100,100,100,60, 50], 20, 20,
                                 self.course_table_click)
         status, data_ = CourseController.find_all()
         data_list = []
