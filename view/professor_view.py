@@ -104,4 +104,22 @@ class ProfessorView:
             Button(self.master, text="edit", command=self.edit_professor2).place(x=10, y=350)
 
     def detaile_professor(self):
-        print("how are you")
+        self.master = Tk()
+        self.master.title("Professor View")
+        self.master.geometry("1100x800")
+
+        professor_table = Table(self.master,
+                              ["id", "name", "family", "faculty", "academic department", "employment status",
+                               "academic email", "deleted"],
+                              [60, 80, 80, 80, 100, 100, 150, 50], 20, 20,
+                              self.professor_table_click)
+        status, data_ = ProfessorController.find_all()
+        data_list = []
+        for data in data_:
+            print(data)
+            data_list.append([data.id, data.name, data.family, data.faculty, data.academic_department, data.employment_status,
+                              data.academic_email, data.deleted])
+        print(data_list)
+        professor_table.refresh_table(data_list)
+        self.master.mainloop()
+

@@ -123,4 +123,24 @@ class CourseView:
             Button(self.master, text="edit", command=self.edit_course2).place(x=10, y=350)
 
     def detaile_course(self):
-        pass
+        self.master = Tk()
+        self.master.title("Course View")
+        self.master.geometry("1100x800")
+
+        course_table = Table(self.master,
+                                ["id", "code", "course name", "course type", "unit number", "prerequisite",
+                                 "language", "hold type","start date","end date","professor id","deleted"],
+                                [60, 80, 80, 80, 60, 150, 80,100,100,100,60, 50], 20, 20,
+                                self.course_table_click)
+        status, data_ = CourseController.find_all()
+        data_list = []
+        for data in data_:
+            print(data)
+            data_list.append(
+                [data.id, data.code, data.course_name, data.course_type, data.unit_number, data.prerequisite,
+                 data.language,data.hold_type,data.start_date,data.end_date,data.professor_id, data.deleted])
+        print(data_list)
+        course_table.refresh_table(data_list)
+        self.master.mainloop()
+
+

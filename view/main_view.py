@@ -52,7 +52,9 @@ class MainView:
         edit.edit_professor()
 
     def detaile_professor(self):
-        pass
+        detaile = ProfessorView()
+        detaile.detaile_professor()
+
 
     def save_course(self):
         save = CourseView()
@@ -63,7 +65,8 @@ class MainView:
         edit.edit_course()
 
     def detaile_course(self):
-        pass
+        detaile = CourseView()
+        detaile.detaile_course()
 
     def save_select_course(self):
         save = SelectCourseView()
