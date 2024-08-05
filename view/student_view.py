@@ -30,7 +30,7 @@ class StudentView:
 
     def save_student(self):
         self.master = Tk()
-        self.master.geometry("800x800")
+        self.master.geometry("400x400")
 
         self.name = TextWithLabel(self.master, "student name", 10, 60)
         self.family = TextWithLabel(self.master, "student family", 10, 90)
