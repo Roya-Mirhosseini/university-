@@ -66,6 +66,6 @@ class MainView:
         pass
 
     def save_select_course(self):
-        save = SelectCourseView
+        save = SelectCourseView()
         save.save_select_course()
 

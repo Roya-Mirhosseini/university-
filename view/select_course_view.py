@@ -37,9 +37,8 @@ class SelectCourseView:
         course_id = int(course_id)
         student_id = self.student_id.get_variable()
         student_id = int(student_id)
-        #date_time = self.date_time.get_variable()
-
-        status, select_course = SelectCourseController.save(course_id, student_id)
+        date_ = datetime.datetime.now()
+        status, select_course = SelectCourseController.save(course_id, student_id,date_)
         if status:
             msg.showinfo("info", "the select course was successfully created")
         else:
