@@ -48,6 +48,7 @@ class ProfessorView:
 
     def save_professor(self):
         self.master = Tk()
+        self.master.title("Storing Professor Info")
         self.master.geometry("400x400")
 
         self.name = TextWithLabel(self.master, "professor name", 10, 60,distance=120)
@@ -62,6 +63,7 @@ class ProfessorView:
 
     def edit_professor(self):
         self.master = Tk()
+        self.master.title("Edit Professor Info")
         self.master.geometry("500x500")
         self.professor_id = TextWithLabel(self.master, "search professor", 10, 20,distance=120)
         Button(self.master, text="search", command=self.search).place(x=10, y=40)
@@ -105,7 +107,7 @@ class ProfessorView:
 
     def detaile_professor(self):
         self.master = Tk()
-        self.master.title("Professor View")
+        self.master.title("Professors Info Table")
         self.master.geometry("1000x400")
 
         professor_table = Table(self.master,

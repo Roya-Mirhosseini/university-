@@ -51,6 +51,7 @@ class CourseView:
 
     def save_course(self):
         self.master = Tk()
+        self.master.title("Save Course Info")
         self.master.geometry("400x400")
         # self.id = TextWithLabel(self.master, "course id", 10, 30)
         self.code = TextWithLabel(self.master, "code", 10, 60)
@@ -69,6 +70,7 @@ class CourseView:
 
     def edit_course(self):
         self.master = Tk()
+        self.master.title("Edit Course Info")
         self.master.geometry("500x500")
         self.course_id = TextWithLabel(self.master, "search course", 10, 20)
         Button(self.master, text="search", command=self.search).place(x=10, y=40)
@@ -124,7 +126,7 @@ class CourseView:
 
     def detaile_course(self):
         self.master = Tk()
-        self.master.title("Course View")
+        self.master.title("Courses Info Table")
         self.master.geometry("1200x400")
 
         course_table = Table(self.master,

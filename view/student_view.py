@@ -30,6 +30,7 @@ class StudentView:
 
     def save_student(self):
         self.master = Tk()
+        self.master.title("Storing Student Info")
         self.master.geometry("400x400")
 
         self.name = TextWithLabel(self.master, "student name", 10, 60)
@@ -47,6 +48,7 @@ class StudentView:
 
     def edit_student(self):
         self.master = Tk()
+        self.master.title("Edit Student Info")
         self.master.geometry("500x500")
         self.std_id = TextWithLabel(self.master, "search student", 10, 20,distance=100)
         Button(self.master, text="search", command=self.search).place(x=10, y=40)
@@ -99,7 +101,7 @@ class StudentView:
         print(row)
     def detaile_student(self):
         self.master = Tk()
-        self.master.title("Student View")
+        self.master.title("Students Info Table")
         self.master.geometry("1200x400")
 
         student_table = Table(self.master,

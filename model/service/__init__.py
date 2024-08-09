@@ -1,4 +1,0 @@
-from model.service.student_service import StudentService
-from model.service.professor_service import ProfessorService
-from model.service.select_course_service import SelectCourseService
-from model.service.course_service import CourseService
