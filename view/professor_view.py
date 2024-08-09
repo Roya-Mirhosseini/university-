@@ -49,16 +49,16 @@ class ProfessorView:
     def save_professor(self):
         self.master = Tk()
         self.master.title("Storing Professor Info")
-        self.master.geometry("400x400")
+        self.master.geometry("600x600")
 
-        self.name = TextWithLabel(self.master, "professor name", 10, 60,distance=120)
-        self.family = TextWithLabel(self.master, "professor family", 10, 90,distance=120)
-        self.faculty = TextWithLabel(self.master, "faculty", 10, 120,distance=120)
-        self.academic_department = TextWithLabel(self.master, "academic department", 10, 150,distance=120)
-        self.employment_status = TextWithLabel(self.master, "employment status", 10, 180,distance=120)
-        self.academic_email = TextWithLabel(self.master, "academic email", 10, 210,distance=120)
+        self.name = TextWithLabel(self.master, "professor name", 10, 50,distance=120)
+        self.family = TextWithLabel(self.master, "professor family", 10, 100,distance=120)
+        self.faculty = TextWithLabel(self.master, "faculty", 10, 150,distance=120)
+        self.academic_department = TextWithLabel(self.master, "academic department", 10, 200,distance=120)
+        self.employment_status = TextWithLabel(self.master, "employment status", 10, 250,distance=120)
+        self.academic_email = TextWithLabel(self.master, "academic email", 10, 300,distance=120)
 
-        Button(self.master, text="save", command=self.save_professor2).place(x=10, y=350)
+        Button(self.master, text="save",width=15,bg="blue",font=("Arial",16), command=self.save_professor2).place(x=200, y=400)
         self.master.mainloop()
 
     def edit_professor(self):

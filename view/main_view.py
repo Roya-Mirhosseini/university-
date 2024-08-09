@@ -18,34 +18,34 @@ class MainView:
     def __init__(self):
         self.win = Tk()
         self.win.title("Main View")
-        self.win.geometry("700x900")
-        Label(self.win, text="مشخصات دانشجو", width=15, height=1, bg="aqua", font=("Arial", 18)).place(x=215, y=40)
-        Button(self.win, text="اضافه کردن", width=15, height=3, bg="aqua", command=self.save_student).place(x=100,
+        self.win.geometry("650x900")
+        Label(self.win, text="مشخصات دانشجو", width=15, height=1, bg="aqua", font=("Arial", 18)).place(x=215, y=50)
+        Button(self.win, text="اضافه کردن", width=15, height=3, bg="aqua",command=self.save_student).place(x=100,
                                                                                                             y=100)
-        Button(self.win, text="ویرایش اطلاعات", width=15, height=3, bg="aqua", command=self.edit_student).place(x=250,
+        Button(self.win, text="ویرایش اطلاعات", width=15, height=3, bg="aqua",command=self.edit_student).place(x=250,
                                                                                                                 y=100)
-        Button(self.win, text="نمایش اطلاعات کامل", width=15, height=3, bg="aqua", command=self.detaile_student).place(
+        Button(self.win, text="نمایش کامل اطلاعات", width=15, height=3, bg="aqua",command=self.detaile_student).place(
             x=400, y=100)
 
         Label(self.win, text="مشخصات استاد", width=15, height=1, bg="light blue", font=("Arial", 18)).place(x=215,
-                                                                                                            y=190)
+                                                                                                            y=200)
         Button(self.win, text="اضافه کردن ", width=15, height=3, bg="light blue", command=self.save_professor).place(
             x=100, y=250)
         Button(self.win, text="ویرایش اطلاعات", width=15, height=3, bg="light blue", command=self.edit_professor).place(
             x=250, y=250)
-        Button(self.win, text="نمایش اطلاعات کامل", width=15, height=3, bg="light blue",
+        Button(self.win, text="نمایش کامل اطلاعات", width=15, height=3, bg="light blue",
                command=self.detaile_professor).place(x=400, y=250)
 
-        Label(self.win, text="مشخصات درس", width=15, height=1, bg="pink", font=("Arial", 18)).place(x=215, y=340)
+        Label(self.win, text="مشخصات درس", width=15, height=1, bg="pink", font=("Arial", 18)).place(x=215, y=350)
         Button(self.win, text="اضافه کردن ", width=15, height=3, bg="pink", command=self.save_course).place(x=100,
                                                                                                             y=400)
         Button(self.win, text="ویرایش اطلاعات", width=15, height=3, bg="pink", command=self.edit_course).place(x=250,
                                                                                                                y=400)
-        Button(self.win, text="نمایش اطلاعات کامل", width=15, height=3, bg="pink", command=self.detaile_course).place(
+        Button(self.win, text="نمایش کامل اطلاعات", width=15, height=3, bg="pink", command=self.detaile_course).place(
             x=400, y=400)
 
         Button(self.win, text="انتخاب واحد", width=15, height=3, bg="teal", command=self.save_select_course).place(
-            x=100, y=550)
+            x=250, y=550)
         self.win.mainloop()
 
     def save_student(self):

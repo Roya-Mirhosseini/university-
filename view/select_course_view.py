@@ -49,11 +49,11 @@ class SelectCourseView:
         self.master.title("Select Course")
         self.master.geometry("400x400")
 
-        self.course_id = TextWithLabel(self.master, "course", 10, 60)
-        self.student_id = TextWithLabel(self.master, "student", 10, 90)
+        self.course_id = TextWithLabel(self.master, "course", 10, 50)
+        self.student_id = TextWithLabel(self.master, "student", 10, 100)
         #self.date_time = TextWithLabel(self.master, "date time", 10, 120)
 
-        Button(self.master, text="save", command=self.save_select_course2).place(x=10, y=350)
+        Button(self.master, text="save",width=15,bg="blue",font=("Arial",14), command=self.save_select_course2).place(x=100, y=200)
 
         self.master.mainloop()
 
