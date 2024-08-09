@@ -33,17 +33,18 @@ class StudentView:
         self.master.title("Storing Student Info")
         self.master.geometry("600x600")
 
-        self.name = TextWithLabel(self.master, "student name" ,10, 50,distance=100)
-        self.family = TextWithLabel(self.master, "student family", 10, 100,distance=100)
-        self.father_name = TextWithLabel(self.master, "father name", 10, 150,distance=100)
-        self.natinal_id = TextWithLabel(self.master, "national id", 10, 200,distance=100)
-        self.degree = TextWithLabel(self.master, "degree", 10, 250,distance=100)
-        self.major = TextWithLabel(self.master, "major", 10, 300,distance=100)
-        self.grade = TextWithLabel(self.master, "grade", 10, 350,distance=100)
-        self.phone_number = TextWithLabel(self.master, "phone", x=10, y=400,distance=100)
-        self.email_address = TextWithLabel(self.master, "email address", 10, 450,distance=100)
+        self.name = TextWithLabel(self.master, "student name", 10, 50, distance=100)
+        self.family = TextWithLabel(self.master, "student family", 10, 100, distance=100)
+        self.father_name = TextWithLabel(self.master, "father name", 10, 150, distance=100)
+        self.natinal_id = TextWithLabel(self.master, "national id", 10, 200, distance=100)
+        self.degree = TextWithLabel(self.master, "degree", 10, 250, distance=100)
+        self.major = TextWithLabel(self.master, "major", 10, 300, distance=100)
+        self.grade = TextWithLabel(self.master, "grade", 10, 350, distance=100)
+        self.phone_number = TextWithLabel(self.master, "phone", x=10, y=400, distance=100)
+        self.email_address = TextWithLabel(self.master, "email address", 10, 450, distance=100)
 
-        Button(self.master, text="save",width=15,bg="blue",font=("Arial",16) ,command=self.save_student2).place(x=200, y=550)
+        Button(self.master, text="save", width=15, bg="blue", font=("Arial", 16), command=self.save_student2).place(
+            x=200, y=550)
         self.master.mainloop()
 
     def edit_student(self):
@@ -51,7 +52,8 @@ class StudentView:
         self.master.title("Edit Student Info")
         self.master.geometry("600x600")
         self.std_id = TextWithLabel(self.master, "search student", 10, 50, distance=100)
-        Button(self.master, text="search",width=15,bg="blue",font=("Arial",14), command=self.search).place(x=200, y=550)
+        Button(self.master, text="search", width=15, bg="blue", font=("Arial", 14), command=self.search).place(x=200,
+                                                                                                               y=550)
         self.master.mainloop()
 
     def edit_student2(self):
@@ -78,25 +80,26 @@ class StudentView:
         status, student = StudentController.find_by_id(id)
         if status:
             print(student)
-            self.name = TextWithLabel(self.master, "student name", 10, 100,distance=100)
+            self.name = TextWithLabel(self.master, "student name", 10, 100, distance=100)
             self.name.set_variable(student.name)
-            self.family = TextWithLabel(self.master, "student family", 10, 150,distance=100)
+            self.family = TextWithLabel(self.master, "student family", 10, 150, distance=100)
             self.family.set_variable(student.family)
-            self.father_name = TextWithLabel(self.master, "father name", 10, 200,distance=100)
+            self.father_name = TextWithLabel(self.master, "father name", 10, 200, distance=100)
             self.father_name.set_variable(student.father_name)
-            self.natinal_id = TextWithLabel(self.master, "national id", 10, 250,distance=100)
+            self.natinal_id = TextWithLabel(self.master, "national id", 10, 250, distance=100)
             self.natinal_id.set_variable(student.national_id)
-            self.degree = TextWithLabel(self.master, "degree", 10, 300,distance=100)
+            self.degree = TextWithLabel(self.master, "degree", 10, 300, distance=100)
             self.degree.set_variable(student.degree)
-            self.major = TextWithLabel(self.master, "major", 10, 350,distance=100)
+            self.major = TextWithLabel(self.master, "major", 10, 350, distance=100)
             self.major.set_variable(student.major)
-            self.grade = TextWithLabel(self.master, "grade", 10, 400,distance=100)
+            self.grade = TextWithLabel(self.master, "grade", 10, 400, distance=100)
             self.grade.set_variable(student.grade)
-            self.phone_number = TextWithLabel(self.master, "phone", x=10, y=450,distance=100)
+            self.phone_number = TextWithLabel(self.master, "phone", x=10, y=450, distance=100)
             self.phone_number.set_variable(student.phone_number)
-            self.email_address = TextWithLabel(self.master, "email address", 10, 500,distance=100)
+            self.email_address = TextWithLabel(self.master, "email address", 10, 500, distance=100)
             self.email_address.set_variable(student.email_address)
-            Button(self.master, text="edit",width=15,bg="blue",font=("Arial",14), command=self.edit_student2).place(x=10, y=550)
+            Button(self.master, text="edit", width=15, bg="blue", font=("Arial", 14), command=self.edit_student2).place(
+                x=10, y=550)
 
     def student_table_click(self, row):
         print(row)

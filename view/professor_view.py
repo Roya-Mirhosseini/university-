@@ -12,7 +12,6 @@ class ProfessorView:
     def professor_table_click(self, row):
         print(row)
 
-
     def __init__(self):
         self.Professor_da = DataAccess(Professor)
         # self.win = Tk()
@@ -51,22 +50,24 @@ class ProfessorView:
         self.master.title("Storing Professor Info")
         self.master.geometry("600x600")
 
-        self.name = TextWithLabel(self.master, "professor name", 10, 50,distance=120)
-        self.family = TextWithLabel(self.master, "professor family", 10, 100,distance=120)
-        self.faculty = TextWithLabel(self.master, "faculty", 10, 150,distance=120)
-        self.academic_department = TextWithLabel(self.master, "academic department", 10, 200,distance=120)
-        self.employment_status = TextWithLabel(self.master, "employment status", 10, 250,distance=120)
-        self.academic_email = TextWithLabel(self.master, "academic email", 10, 300,distance=120)
+        self.name = TextWithLabel(self.master, "professor name", 10, 50, distance=120)
+        self.family = TextWithLabel(self.master, "professor family", 10, 100, distance=120)
+        self.faculty = TextWithLabel(self.master, "faculty", 10, 150, distance=120)
+        self.academic_department = TextWithLabel(self.master, "academic department", 10, 200, distance=120)
+        self.employment_status = TextWithLabel(self.master, "employment status", 10, 250, distance=120)
+        self.academic_email = TextWithLabel(self.master, "academic email", 10, 300, distance=120)
 
-        Button(self.master, text="save",width=15,bg="blue",font=("Arial",16), command=self.save_professor2).place(x=200, y=400)
+        Button(self.master, text="save", width=15, bg="blue", font=("Arial", 16), command=self.save_professor2).place(
+            x=200, y=400)
         self.master.mainloop()
 
     def edit_professor(self):
         self.master = Tk()
         self.master.title("Edit Professor Info")
         self.master.geometry("600x600")
-        self.professor_id = TextWithLabel(self.master, "search professor", 10, 50,distance=120)
-        Button(self.master, text="search",width=15,bg="blue",font=("Arial",14), command=self.search).place(x=200, y=400)
+        self.professor_id = TextWithLabel(self.master, "search professor", 10, 50, distance=120)
+        Button(self.master, text="search", width=15, bg="blue", font=("Arial", 14), command=self.search).place(x=200,
+                                                                                                               y=400)
         self.master.mainloop()
 
     def edit_professor2(self):
@@ -90,20 +91,21 @@ class ProfessorView:
         status, professor = ProfessorController.find_by_id(id)
         if status:
             print(professor)
-            self.name = TextWithLabel(self.master, "professor name", 10, 100,distance=120)
+            self.name = TextWithLabel(self.master, "professor name", 10, 100, distance=120)
             self.name.set_variable(professor.name)
-            self.family = TextWithLabel(self.master, "professor family", 10, 150,distance=120)
+            self.family = TextWithLabel(self.master, "professor family", 10, 150, distance=120)
             self.family.set_variable(professor.family)
-            self.faculty = TextWithLabel(self.master, "faculty", 10, 200,distance=120)
+            self.faculty = TextWithLabel(self.master, "faculty", 10, 200, distance=120)
             self.faculty.set_variable(professor.faculty)
-            self.academic_department = TextWithLabel(self.master, "academic department", 10, 250,distance=120)
+            self.academic_department = TextWithLabel(self.master, "academic department", 10, 250, distance=120)
             self.academic_department.set_variable(professor.academic_department)
-            self.employment_status = TextWithLabel(self.master, "employment status", 10, 300,distance=120)
+            self.employment_status = TextWithLabel(self.master, "employment status", 10, 300, distance=120)
             self.employment_status.set_variable(professor.employment_status)
-            self.academic_email = TextWithLabel(self.master, "academic email", 10, 350,distance=120)
+            self.academic_email = TextWithLabel(self.master, "academic email", 10, 350, distance=120)
             self.academic_email.set_variable(professor.academic_email)
 
-            Button(self.master, text="edit",width=15,bg="blue",font=("Arial",14), command=self.edit_professor2).place(x=10, y=400)
+            Button(self.master, text="edit", width=15, bg="blue", font=("Arial", 14),
+                   command=self.edit_professor2).place(x=10, y=400)
 
     def detaile_professor(self):
         self.master = Tk()
@@ -111,17 +113,17 @@ class ProfessorView:
         self.master.geometry("1000x400")
 
         professor_table = Table(self.master,
-                              ["id", "name", "family", "faculty", "academic department", "employment status",
-                               "academic email", "deleted"],
-                              [60, 80, 80, 150, 150, 150, 150, 50], 20, 20,
-                              self.professor_table_click)
+                                ["id", "name", "family", "faculty", "academic department", "employment status",
+                                 "academic email", "deleted"],
+                                [60, 80, 80, 150, 150, 150, 150, 50], 20, 20,
+                                self.professor_table_click)
         status, data_ = ProfessorController.find_all()
         data_list = []
         for data in data_:
             print(data)
-            data_list.append([data.id, data.name, data.family, data.faculty, data.academic_department, data.employment_status,
-                              data.academic_email, data.deleted])
+            data_list.append(
+                [data.id, data.name, data.family, data.faculty, data.academic_department, data.employment_status,
+                 data.academic_email, data.deleted])
         print(data_list)
         professor_table.refresh_table(data_list)
         self.master.mainloop()
-

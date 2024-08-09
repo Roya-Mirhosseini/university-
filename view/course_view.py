@@ -53,26 +53,28 @@ class CourseView:
         self.master = Tk()
         self.master.title("Save Course Info")
         self.master.geometry("600x700")
-        self.code = TextWithLabel(self.master, "code", 10, 50,distance=100)
-        self.course_name = TextWithLabel(self.master, "course name", 10, 100,distance=100)
-        self.course_type = TextWithLabel(self.master, "course type", 10, 150,distance=100)
-        self.unit_number = TextWithLabel(self.master, "unit number", 10, 200,distance=100)
-        self.prerequisite = TextWithLabel(self.master, "prerequisite", 10, 250,distance=100)
-        self.language = TextWithLabel(self.master, "language", 10, 300,distance=100)
-        self.hold_type = TextWithLabel(self.master, "hold type", 10, 350,distance=100)
-        self.start_date = TextWithLabel(self.master, "start date", 10, 400,distance=100)
-        self.end_date = TextWithLabel(self.master, "end date", 10, 450,distance=100)
-        self.professor_id = TextWithLabel(self.master, "professor id", 10, 500,distance=100)
+        self.code = TextWithLabel(self.master, "code", 10, 50, distance=100)
+        self.course_name = TextWithLabel(self.master, "course name", 10, 100, distance=100)
+        self.course_type = TextWithLabel(self.master, "course type", 10, 150, distance=100)
+        self.unit_number = TextWithLabel(self.master, "unit number", 10, 200, distance=100)
+        self.prerequisite = TextWithLabel(self.master, "prerequisite", 10, 250, distance=100)
+        self.language = TextWithLabel(self.master, "language", 10, 300, distance=100)
+        self.hold_type = TextWithLabel(self.master, "hold type", 10, 350, distance=100)
+        self.start_date = TextWithLabel(self.master, "start date", 10, 400, distance=100)
+        self.end_date = TextWithLabel(self.master, "end date", 10, 450, distance=100)
+        self.professor_id = TextWithLabel(self.master, "professor id", 10, 500, distance=100)
 
-        Button(self.master, text="save",width=15,bg="blue",font=("Arial",16), command=self.save_course2).place(x=200, y=600)
+        Button(self.master, text="save", width=15, bg="blue", font=("Arial", 16), command=self.save_course2).place(
+            x=200, y=600)
         self.master.mainloop()
 
     def edit_course(self):
         self.master = Tk()
         self.master.title("Edit Course Info")
-        self.master.geometry("500x500")
-        self.course_id = TextWithLabel(self.master, "search course", 10, 20)
-        Button(self.master, text="search", command=self.search).place(x=10, y=40)
+        self.master.geometry("700x700")
+        self.course_id = TextWithLabel(self.master, "search course", 10, 50, distance=100)
+        Button(self.master, text="search", width=15, bg="blue", font=("Arial", 14), command=self.search).place(x=200,
+                                                                                                               y=600)
         self.master.mainloop()
 
     def edit_course2(self):
@@ -100,28 +102,28 @@ class CourseView:
         status, course = CourseController.find_by_id(id)
         if status:
             print(course)
-            self.code = TextWithLabel(self.master, "code", 10, 70)
+            self.code = TextWithLabel(self.master, "code", 10, 100)
             self.code.set_variable(course.code)
-            self.course_name = TextWithLabel(self.master, "course name", 10, 100)
+            self.course_name = TextWithLabel(self.master, "course name", 10, 150)
             self.course_name.set_variable(course.course_name)
-            self.course_type = TextWithLabel(self.master, "course type", 10, 130)
+            self.course_type = TextWithLabel(self.master, "course type", 10, 200)
             self.course_type.set_variable(course.course_type)
-            self.unit_number = TextWithLabel(self.master, "unit number", 10, 160)
+            self.unit_number = TextWithLabel(self.master, "unit number", 10, 250)
             self.unit_number.set_variable(course.unit_number)
-            self.prerequisite = TextWithLabel(self.master, "prerequisite", 10, 190)
+            self.prerequisite = TextWithLabel(self.master, "prerequisite", 10, 300)
             self.prerequisite.set_variable(course.prerequisite)
-            self.language = TextWithLabel(self.master, "language", 10, 220)
+            self.language = TextWithLabel(self.master, "language", 10, 350)
             self.language.set_variable(course.language)
-            self.hold_type = TextWithLabel(self.master, "hold_type", 10, 250)
+            self.hold_type = TextWithLabel(self.master, "hold_type", 10, 400)
             self.hold_type.set_variable(course.hold_type)
-            self.start_date = TextWithLabel(self.master, "start date", x=10, y=280)
+            self.start_date = TextWithLabel(self.master, "start date", x=10, y=450)
             self.start_date.set_variable(course.start_date)
-            self.end_date = TextWithLabel(self.master, "end date", 10, 310)
+            self.end_date = TextWithLabel(self.master, "end date", 10, 500)
             self.end_date.set_variable(course.end_date)
-            self.professor_id = TextWithLabel(self.master, "professor id", 10, 310)
+            self.professor_id = TextWithLabel(self.master, "professor id", 10, 550)
             self.professor_id.set_variable(course.professor_id)
 
-            Button(self.master, text="edit", command=self.edit_course2).place(x=10, y=350)
+            Button(self.master, text="edit", width=15, bg="blue", font=("Arial", 14), command=self.edit_course2).place(x=10, y=600)
 
     def detaile_course(self):
         self.master = Tk()
@@ -129,19 +131,17 @@ class CourseView:
         self.master.geometry("1200x400")
 
         course_table = Table(self.master,
-                                ["id", "code", "course name", "course type", "unit number", "prerequisite",
-                                 "language", "hold type","start date","end date","professor id","deleted"],
-                                [60, 80, 120, 80, 100, 150, 80,100,100,100,60, 50], 20, 20,
-                                self.course_table_click)
+                             ["id", "code", "course name", "course type", "unit number", "prerequisite",
+                              "language", "hold type", "start date", "end date", "professor id", "deleted"],
+                             [60, 80, 120, 80, 100, 150, 80, 100, 100, 100, 60, 50], 20, 20,
+                             self.course_table_click)
         status, data_ = CourseController.find_all()
         data_list = []
         for data in data_:
             print(data)
             data_list.append(
                 [data.id, data.code, data.course_name, data.course_type, data.unit_number, data.prerequisite,
-                 data.language,data.hold_type,data.start_date,data.end_date,data.professor_id, data.deleted])
+                 data.language, data.hold_type, data.start_date, data.end_date, data.professor_id, data.deleted])
         print(data_list)
         course_table.refresh_table(data_list)
         self.master.mainloop()
-
-
