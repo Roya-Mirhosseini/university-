@@ -64,9 +64,9 @@ class ProfessorView:
     def edit_professor(self):
         self.master = Tk()
         self.master.title("Edit Professor Info")
-        self.master.geometry("500x500")
-        self.professor_id = TextWithLabel(self.master, "search professor", 10, 20,distance=120)
-        Button(self.master, text="search", command=self.search).place(x=10, y=40)
+        self.master.geometry("600x600")
+        self.professor_id = TextWithLabel(self.master, "search professor", 10, 50,distance=120)
+        Button(self.master, text="search",width=15,bg="blue",font=("Arial",14), command=self.search).place(x=200, y=400)
         self.master.mainloop()
 
     def edit_professor2(self):
@@ -90,20 +90,20 @@ class ProfessorView:
         status, professor = ProfessorController.find_by_id(id)
         if status:
             print(professor)
-            self.name = TextWithLabel(self.master, "professor name", 10, 70)
+            self.name = TextWithLabel(self.master, "professor name", 10, 100,distance=120)
             self.name.set_variable(professor.name)
-            self.family = TextWithLabel(self.master, "professor family", 10, 100)
+            self.family = TextWithLabel(self.master, "professor family", 10, 150,distance=120)
             self.family.set_variable(professor.family)
-            self.faculty = TextWithLabel(self.master, "faculty", 10, 130)
+            self.faculty = TextWithLabel(self.master, "faculty", 10, 200,distance=120)
             self.faculty.set_variable(professor.faculty)
-            self.academic_department = TextWithLabel(self.master, "academic department", 10, 160)
+            self.academic_department = TextWithLabel(self.master, "academic department", 10, 250,distance=120)
             self.academic_department.set_variable(professor.academic_department)
-            self.employment_status = TextWithLabel(self.master, "employment status", 10, 190)
+            self.employment_status = TextWithLabel(self.master, "employment status", 10, 300,distance=120)
             self.employment_status.set_variable(professor.employment_status)
-            self.academic_email = TextWithLabel(self.master, "academic email", 10, 220)
+            self.academic_email = TextWithLabel(self.master, "academic email", 10, 350,distance=120)
             self.academic_email.set_variable(professor.academic_email)
 
-            Button(self.master, text="edit", command=self.edit_professor2).place(x=10, y=350)
+            Button(self.master, text="edit",width=15,bg="blue",font=("Arial",14), command=self.edit_professor2).place(x=10, y=400)
 
     def detaile_professor(self):
         self.master = Tk()
